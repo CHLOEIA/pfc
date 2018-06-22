@@ -14,18 +14,40 @@
 
 <body>
 
-  <p>Hello, world!</p>
+
 
   <script>
+
+function game() {
+  let compteur = 0;
+  for (let i=1; i<=5; i++) {
+    player = window.prompt("choix");
+      let resultat = playRound(player);
+      if (resultat==="Win"){
+        compteur++;
+
+      } else if (resultat==="Lose"){
+        compteur--;
+      }
+  }
+  if (compteur>0){
+    console.log("Win")
+  } else if (compteur ==0){
+    console.log("Draw")
+  } else {
+    console.log("Lose")
+  }
+}
+
 
   function computerPlay() {
     rand = Math.floor(Math.random() * Math.floor(3));
     if (rand === 1){
-      return "rock"
+      return ("rock")
     } else if (rand ===2){
-      return "paper"
+      return ("paper")
     } else {
-      return "scissor"
+      return ("scissor")
     }
   }
 function playRound(playerSelection, computerSelection = computerPlay()) {
@@ -33,13 +55,14 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
   player = playerSelection.toLowerCase();
   comp = computerSelection.toLowerCase();
   if ((player === "rock" && comp ==="paper") || (player ==="paper" && comp ==="scissor") || (player==="scissor" && comp==="rock" )){
-    return("Loser")
+    return("Lose")
   } else if (player===comp){
-    return("Play again")
+    return("Draw")
   } else {
     return("Win")
   }
 }
+
 
 
   </script>
