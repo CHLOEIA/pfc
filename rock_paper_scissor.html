@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" type="text/css" href="style.css">
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -14,58 +15,22 @@
 
 <body>
 
+<div id="container">
+  <button id="btn1">
+    Rock
+  </button>
+  <button id="btn2">
+    Paper
+  </button>
+  <button id="btn3">
+    Scissor
+  </button>
+</div>
 
 
-  <script>
-
-function game() {
-  let compteur = 0;
-  for (let i=1; i<=5; i++) {
-    player = window.prompt("choix");
-      let resultat = playRound(player);
-      if (resultat==="Win"){
-        compteur++;
-
-      } else if (resultat==="Lose"){
-        compteur--;
-      }
-  }
-  if (compteur>0){
-    console.log("Win")
-  } else if (compteur ==0){
-    console.log("Draw")
-  } else {
-    console.log("Lose")
-  }
-}
-
-
-  function computerPlay() {
-    rand = Math.floor(Math.random() * Math.floor(3));
-    if (rand === 1){
-      return ("rock")
-    } else if (rand ===2){
-      return ("paper")
-    } else {
-      return ("scissor")
-    }
-  }
-function playRound(playerSelection, computerSelection = computerPlay()) {
-  console.log(computerSelection)
-  player = playerSelection.toLowerCase();
-  comp = computerSelection.toLowerCase();
-  if ((player === "rock" && comp ==="paper") || (player ==="paper" && comp ==="scissor") || (player==="scissor" && comp==="rock" )){
-    return("Lose")
-  } else if (player===comp){
-    return("Draw")
-  } else {
-    return("Win")
-  }
-}
-
-
-
-  </script>
 </body>
+
+<script src="game.js"> </script>
+
 
 </html>
